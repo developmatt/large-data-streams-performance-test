@@ -1,21 +1,28 @@
+import { createRandomUser } from "./generateRandomUser";
+
+const INTERATIONS_LIMIT = 100;
+export const AMOUNT_PER_ITERATION = 1000;
+
 export function generateDataStream(): ReadableStream<number> {
-  return new ReadableStream<number>({
+  return new ReadableStream<any>({
     start(controller) {
       let counter = 0;
-      
+
       function generate() {
-        const dado = Math.floor(Math.random() * 100);
-        controller.enqueue(dado);
+        const dado = Array.from(
+          { length: AMOUNT_PER_ITERATION },
+          createRandomUser
+        );
+        controller.enqueue(JSON.stringify(dado));
         counter++;
-        if (counter >= 10) {
+        if (counter >= INTERATIONS_LIMIT) {
           controller.close();
         } else {
-          setTimeout(generate, 1000);
+          setTimeout(generate, 10);
         }
       }
 
-      //Start generate stream
       generate();
-    }
+    },
   });
 }
