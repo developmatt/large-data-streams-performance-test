@@ -21,35 +21,14 @@ In this project, we create a function that simulates generating a continuous dat
    ```sh
    git clone https://github.com/developmatt/large-data-streams-performance-test
 
-## Results so far
-100 per iteration
-{
-  rss: '105.91 MB -> Resident Set Size - total memory allocated for the process execution',
-  heapTotal: '24.17 MB -> total size of the allocated heap',
-  heapUsed: '17.09 MB -> actual memory used during the execution',
-  external: '4.06 MB -> V8 external memory'
-}
+## Metrics so far
 
-1000 Memory Usage:
-{
-  rss: '157.85 MB -> Resident Set Size - total memory allocated for the process execution',
-  heapTotal: '75.71 MB -> total size of the allocated heap',
-  heapUsed: '40.38 MB -> actual memory used during the execution',
-  external: '4.52 MB -> V8 external memory'
-}
-
-10000 per iteration
-{
-  rss: '196.24 MB -> Resident Set Size - total memory allocated for the process execution',
-  heapTotal: '97.97 MB -> total size of the allocated heap',
-  heapUsed: '46.95 MB -> actual memory used during the execution',
-  external: '9.33 MB -> V8 external memory'
-}
-100000 per iteration
-{
-  rss: '318.61 MB -> Resident Set Size - total memory allocated for the process execution',
-  heapTotal: '212.46 MB -> total size of the allocated heap',
-  heapUsed: '192.33 MB -> actual memory used during the execution',
-  external: '84.25 MB -> V8 external memory'
-}
+```markdown
+| Iteration    | rss (Resident Set Size) | heapTotal (Total heap size) | heapUsed (Memory used) | external (V8 external memory) |
+|--------------|--------------------------|-----------------------------|------------------------|------------------------------|
+| 100          | 105.91 MB                | 24.17 MB                    | 17.09 MB               | 4.06 MB                      |
+| 1000         | 157.85 MB                | 75.71 MB                    | 40.38 MB               | 4.52 MB                      |
+| 10000        | 196.24 MB                | 97.97 MB                    | 46.95 MB               | 9.33 MB                      |
+| 100000       | 318.61 MB                | 212.46 MB                   | 192.33 MB              | 84.25 MB                     |
+```
 
